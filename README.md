@@ -54,4 +54,4 @@ Inside you'll find:
 ## 🛠️ License & Credits
 
 All content is original unless otherwise stated.  
-This is a personal academic repository — © Mamadou Pupal, 2025.
+This is a personal academic repository — © Muzamel Pupal, 2025.
