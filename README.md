@@ -1,4 +1,5 @@
-🎓 HEG Genève – Vault Technique de 1re Année  
+# 🎓 HEG Genève – Vault Technique de 1re Année  
+
 Ce dépôt est une archive personnelle et structurée de mes travaux techniques réalisés en première année du Bachelor en Informatique de Gestion à la HEG Genève.  
 Il regroupe uniquement l’essentiel : développement Java, réseaux & infrastructure Cisco, et cybersécurité — avec des fichiers organisés, annotés et réutilisables.
 
