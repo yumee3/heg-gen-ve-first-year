@@ -1,57 +1,65 @@
-# 🎓 HEG Geneva – First-Year Tech Knowledge Vault
-
-This repository is a curated archive of my technical coursework from the first year of the Bachelor in Business Information Technology at HEG Geneva.  
-It includes detailed notes, code, projects, and personal summaries — focused only on what matters: development, networks, systems, security, and business analysis.
-
----
-
-## 🧭 Course Breakdown
-
-### 🧱 Semester 1 – Foundations
-- **Infrastructure & Networks**  
-  OSI model, IP addressing, subnetting, Cisco CLI, Packet Tracer labs
-- **Python Programming**  
-  Variables, control flow, functions, file I/O, small projects
-- **UML & Modeling**  
-  Use case diagrams, class diagrams, sequence diagrams, modeling tools
-- **Visual Studio & Dev Tools**  
-  C# basics, Visual Studio environment, debugging, project setup
-
-### 🚀 Semester 2 – Applied Tech
-- **Java Programming**  
-  OOP (classes, inheritance, interfaces), exceptions, collections, file handling, exam projects
-- **Databases (SQL)**  
-  Schema design, normalization, PostgreSQL, SQL queries (JOIN, GROUP BY, etc.)
-- **Entreprise Connectée**  
-  VLANs, routing (static/dynamic), DHCP, NAT, ACL, hands-on Cisco work
-- **Business Analysis**  
-  BPMN, requirements gathering, solution design, stakeholder analysis
-- **Cybersecurity**  
-  Threat modeling, risk analysis, security policies, ISO standards, EBIOS
+🎓 HEG Genève – Vault Technique de 1re Année  
+Ce dépôt est une archive personnelle et structurée de mes travaux techniques réalisés en première année du Bachelor en Informatique de Gestion à la HEG Genève.  
+Il regroupe uniquement l’essentiel : développement Java, réseaux & infrastructure Cisco, et cybersécurité — avec des fichiers organisés, annotés et réutilisables.
 
 ---
 
-## 📁 Structure
+🧭 Répartition par matière
 
-Each folder or wiki section corresponds to a core subject.  
-Inside you'll find:
-- 📄 `README.md` files with organized content
-- 🧾 Revision sheets and concepts
-- 📁 Code (Java, Python, SQL, Cisco configs)
-- 🧪 Exam exercises, TP corrections, and cheat sheets
+🧱 **Programmation Java**  
+- Concepts de la POO : classes, encapsulation, héritage, polymorphisme, interfaces  
+- Exceptions, gestion des fichiers, collections (`ArrayList`, `HashMap`, etc.)  
+- TP d’examen, projets orientés objets, parsing de fichiers CSV  
+- ✔️ Aide-mémoire Java complet incluant :  
+  - Explication des concepts clés  
+  - Méthodes utiles, pièges classiques  
+  - Extraits de code réutilisables avec commentaires  
+  - Résumés pour chaque chapitre ou TP pratique  
+
+🌐 **Infrastructure & Réseaux (Cisco – Packet Tracer)**  
+- Commandes de configuration Cisco (router, switch, PC)  
+- TP complet de réseau avec :  
+  - VLANs et routage inter-VLAN (Router-on-a-stick)  
+  - DHCP (serveur et relais)  
+  - NAT, PAT, ACL standard et étendues  
+  - Redirection de ports  
+  - Routage dynamique (RIP)  
+  - Configuration d’un réseau Wi-Fi sécurisé (SSID, WPA2)  
+- ✔️ Contenu :  
+  - `exo_final.pkt` → simulation complète sur Packet Tracer  
+  - `configurations.txt` → toutes les commandes classées par thème  
+  - TP bonus : simulation domotique (porte de garage, IoT, etc.)
+
+🛡️ **Cybersécurité**  
+- Simulation d’une attaque sur une commune fictive (Belleville) avec :  
+  - Identification des risques  
+  - Analyse des impacts  
+  - Proposition de politique de sécurité  
+  - Rapport complet en format académique  
+- Script Python d’**ARP spoofing** (Man-in-the-Middle) :  
+  - Testé sur réseau local (hotspot iPhone)  
+  - Utilisation de la librairie `scapy`  
+  - README détaillant le contexte, les IP/MAC utilisées, et les précautions
 
 ---
 
-## 🎯 Goals
-
-- Build a clean, useful and lasting knowledge base
-- Help me prepare faster for exams and projects
-- Serve as a foundation for my cybersecurity and software journey
-- Share this resource with future students or recruiters
+📁 Structure du dépôt  
+Chaque dossier correspond à une matière ou un projet, et contient généralement :  
+- 📄 `README.md` pour le contexte et la structure  
+- 🧾 Fiches de révision ou mémo  
+- 💻 Code source (Java, Cisco CLI, Python)  
+- 🧪 TP corrigés, exercices d’examen, cas pratiques
 
 ---
 
-## 🛠️ License & Credits
+🎯 Objectifs du dépôt  
+- Centraliser mes connaissances techniques de manière durable  
+- Préparer rapidement mes examens et entretiens  
+- Constituer une base de départ solide pour ma carrière en cybersécurité et développement  
+- Partager un support utile avec d’autres étudiants ou recruteurs
 
-All content is original unless otherwise stated.  
-This is a personal academic repository — © Muzamel Pupal, 2025.
+---
+
+🛠️ Licence & Crédits  
+Tous les contenus sont originaux sauf mention contraire.  
+Dépôt académique personnel — © Muzamel Pupal, 2025.
