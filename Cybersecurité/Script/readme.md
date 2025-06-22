@@ -1,21 +1,31 @@
-# Script ARP Spoofing
+# 🛠️ Script ARP Spoofing (à but pédagogique)
 
-Ce script Python réalise une attaque de type **ARP Spoofing** dans un réseau local, afin d'usurper l'identité de la passerelle (routeur) et intercepter le trafic entre une victime et le routeur (**attaque de type Man-In-The-Middle**).
+Ce script Python réalise une attaque de type **ARP Spoofing** dans un réseau local.  
+Il permet d'usurper l'identité de la passerelle (routeur) afin d'intercepter le trafic entre une victime et le routeur — c’est une attaque **Man-In-The-Middle (MITM)**.
+
+---
+
+## ⚠️ Avertissement
+
+Ce script est fourni **uniquement à des fins pédagogiques**.  
+❌ **L’usage malveillant, non autorisé ou illégal est strictement interdit.**
+
+---
 
 ## ⚙️ Environnement de test
 
-- Réseau local via **partage de connexion sur iPhone**
-- Les adresses **IP** et **MAC** dans le script correspondent à cet environnement de test
+- Réseau local établi via **partage de connexion iPhone**
+- Les **adresses IP et MAC** présentes dans le script correspondent à ce contexte
+- ⚠️ Pensez à **modifier les adresses IP et MAC** si vous utilisez ce script dans un autre environnement réseau
 
-👉 **Pensez à modifier** les adresses IP et MAC si vous utilisez ce script dans un autre contexte réseau.
+---
 
 ## 📦 Dépendances
 
-- Le script utilise la bibliothèque **Scapy**
-- Il est placé dans un environnement virtuel `.venv` contenant toutes les dépendances nécessaires
+- Langage : **Python 3**
+- Librairie requise : **Scapy**
+- Aucune configuration `.venv` fournie
+- Pour installer la dépendance :
 
-## 🛑 Avertissement
-
-Ce script est fourni à **des fins pédagogiques uniquement**.  
-**L’usage malveillant ou illégal est strictement interdit.**
-
+```bash
+pip install scapy
