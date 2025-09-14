@@ -1,7 +1,0 @@
-# VICTIME
-target_ip = [172.20.10.164] & [08:00:27:8a:21:f4]
-
-# PASSERELLE
-gateway_ip = [172.20.10.1 ] & [a0:b5:49:69:ed:40]
-
-ME = "F4:A4:75:7A:BF:52"
