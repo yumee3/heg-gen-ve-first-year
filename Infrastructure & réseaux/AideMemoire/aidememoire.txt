@@ -161,7 +161,7 @@ interface FastEthernet0/1
 
 # WI-FI CONFIGURATION (SSID, RADIO, BRIDGING)
 
-! Étape 1 : Créer le SSID
+! Step 1 : Créer le SSID
 
 dot11 ssid HEG_WIFI
  vlan 10
@@ -170,29 +170,74 @@ dot11 ssid HEG_WIFI
  authentication key-management wpa version 2
  wpa-psk ascii 0 cisco123
 
-! Étape 2 : Activer l’interface radio
+! Step 2 : Activer l’interface radio
 
 interface dot11radio 0
  no shutdown
  ssid HEG_WIFI
  encryption vlan 10 mode ciphers aes-ccm
 
-! Étape 3 : Créer la sous-interface WiFi pour le VLAN 10
+! Step 3 : Créer la sous-interface WiFi pour le VLAN 10
 
 interface dot11radio 0.10
  encapsulation dot1q 10
  bridge-group 1
 
-! Étape 4 : Créer la sous-interface Ethernet pour le VLAN 10
+! Step 4 : Créer la sous-interface Ethernet pour le VLAN 10
 
 interface FastEthernet0.10
  encapsulation dot1q 10
  bridge-group 1
 
-! Étape 5 : Activer l’interface Ethernet physique si nécessaire
+! Step 5 : Activer l’interface Ethernet physique si nécessaire
 
 interface FastEthernet0
  no shutdown
+
+# SSH et sécurité
+
+# Création d'utilisateur et gestion des accès
+
+# Exemple utilisateur simple
+username helpdesk privilege 1 secret MonitorOnly123
+
+# Exemple utilisateur admin
+username network-admin privilege 15 secret FullAccess456
+
+Router# configure terminal
+
+# Step 1: Définir un nom pour le router
+Router(config)# hostname Router1
+
+# Step 2: Configurer un nom de domaine
+Router1(config)# ip domain-name company.com
+
+# Step 3: Générer une paire de clé RSA (2048-bit --> pour une sécurité renforcée)
+
+Router1(config)# crypto key generate rsa general-keys modulus 2048
+The name for the keys will be: Router1.company.com
+% The key modulus size is 2048 bits
+% Generating 2048 bit RSA keys, keys will be non-exportable...
+[OK] (elapsed time was 15 seconds)
+
+# Step 4: Création d'un utilisateur local avec les accès admin
+Router1(config)# username admin privilege 15 secret StrongPass2024!
+
+# Step 5: Configuration des lignes d'accès virtuelle
+Router1(config)# line vty 0 4
+Router1(config-line)# transport input ssh
+Router1(config-line)# login local
+Router1(config-line)# exec-timeout 5 0
+Router1(config-line)# exit
+
+# Step 6: Configuration des paramètres SSH
+Router1(config)# ip ssh version 2
+Router1(config)# ip ssh time-out 60
+Router1(config)# ip ssh authentication-retries 3
+
+# Step 7: Sauvegarde de la configuration
+Router1(config)# end
+Router1# write memory
 
 # COMMANDES DE VÉRIFICATION WI-FI
 
