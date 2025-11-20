@@ -1,9 +1,9 @@
-# CONFIGURATION DE BASE
+========================================
+BASIC CONFIGURATION
+========================================
 
 hostname R1
-
 enable secret class
-
 service password-encryption
 
 line console 0
@@ -22,34 +22,44 @@ interface FastEthernet0/0
  ip address 192.168.1.1 255.255.255.0
  no shutdown
 
-# VLAN & TRUNK
 
-# Déplacement de toutes les interfaces du VLAN par défaut (1) vers un autre VLAN (ex. : VLAN 99)
+========================================
+VLAN & TRUNKING
+========================================
+
+# Move all interfaces from default VLAN (1) to VLAN 99
 Switch(config)# vlan 99
 Switch(config)# interface range FastEthernet0/1 - 24
 Switch(config-if-range)# switchport access vlan 99
 Switch(config-if-range)# exit
 
+# Create VLAN 10
 Switch(config)# vlan 10
-Switch(config-vlan)# name IT_Departement
+Switch(config-vlan)# name IT_Department
 Switch(config-vlan)# exit
 
+# Assign interface to VLAN 10 (access mode)
 Switch(config)# interface FastEthernet0/1
 Switch(config-if)# switchport mode access
 Switch(config-if)# switchport access vlan 10
 Switch(config-if)# exit
 
+# Configure trunk port
 Switch(config)# interface GigabitEthernet0/1
 Switch(config-if)# switchport trunk encapsulation dot1q
 Switch(config-if)# switchport mode trunk
 Switch(config-if)# switchport trunk allowed vlan 10
 Switch(config-if)# exit
 
+# Configure native VLAN on trunk
 Switch(config)# interface [TRUNK_PORT]
 Switch(config-if)# switchport trunk native vlan [VLAN_ID]
 Switch(config-if)# exit
 
-# ROUTAGE INTER-VLAN
+
+========================================
+INTER-VLAN ROUTING
+========================================
 
 R1(config)# interface fa0/0.10
 R1(config-subif)# description VLAN_10
@@ -61,13 +71,18 @@ R1(config-subif)# description VLAN_20
 R1(config-subif)# encapsulation dot1q 20
 R1(config-subif)# ip address 10.136.8.129 255.255.255.192
 
-# DHCP RELAY & CONFIGURATION
 
+========================================
+DHCP RELAY & DHCP SERVER CONFIG
+========================================
+
+# DHCP Relay (IP Helper)
 R1(config)# interface fa0/0
 R1(config-if)# ip address 10.136.8.1 255.255.255.192
 R1(config-if)# no shutdown
 R1(config-if)# ip helper-address 10.136.0.100
 
+# DHCP Server
 ip dhcp excluded-address 192.168.1.1 192.168.1.10
 ip dhcp pool POOL1
  network 192.168.1.0 255.255.255.0
@@ -75,16 +90,24 @@ ip dhcp pool POOL1
  dns-server 8.8.8.8 8.8.4.4
  lease 0 0 30
 
-# DHCP SNOOPING
+
+========================================
+DHCP SNOOPING
+========================================
 
 ip dhcp snooping
 ip dhcp snooping vlan 10
+
 interface GigabitEthernet0/1
  ip dhcp snooping trust
+
 interface GigabitEthernet0/2
  ip dhcp snooping limit rate 10
 
-# RIP
+
+========================================
+RIP CONFIGURATION
+========================================
 
 router rip
  version 2
@@ -95,7 +118,10 @@ router rip
  default-information originate
  redistribute static
 
-# AUTHENTIFICATION RIP MD5
+
+========================================
+RIP MD5 AUTHENTICATION
+========================================
 
 key chain RIP_KEY
  key 1
@@ -105,53 +131,63 @@ interface FastEthernet0/1
  ip rip authentication mode md5
  ip rip authentication key-chain RIP_KEY
 
-# EIGRP
+
+========================================
+EIGRP
+========================================
 
 router eigrp 100
  network 10.0.0.0
  no auto-summary
  redistribute rip metric 10000 100 255 1 1500
 
-# NAT STATIQUE
 
+========================================
+NAT (STATIC / DYNAMIC / PAT)
+========================================
+
+# Static NAT
 ip nat inside source static 192.168.10.254 209.165.201.5
 interface Serial0/1/0
  ip nat inside
 interface Serial0/1/1
  ip nat outside
 
-# NAT DYNAMIQUE
-
+# Dynamic NAT
 ip nat pool POOL1 203.0.113.5 203.0.113.10 netmask 255.255.255.248
 access-list 1 permit 192.168.1.0 0.0.0.255
 ip nat inside source list 1 pool POOL1
 
-# PAT
-
+# PAT (NAT Overload)
 ip nat inside source list 1 interface FastEthernet0/1 overload
 interface FastEthernet0/0
  ip nat inside
 interface Serial0/1/1
  ip nat outside
 
-# REDIRECTION DE PORT
-
+# Port Forwarding
 ip nat inside source static tcp 192.168.1.100 80 203.0.113.5 8080
 
-# ACL STANDARD
 
+========================================
+ACCESS LISTS (ACL)
+========================================
+
+# Standard ACL
 access-list 10 permit 192.168.1.0 0.0.0.255
 interface FastEthernet0/1
  ip access-group 10 in
 
-# ACL ÉTENDUE
-
+# Extended ACL
 access-list 101 deny tcp host 192.168.1.10 host 172.16.0.1 eq 80
 access-list 101 permit ip any any
 interface FastEthernet0/1
  ip access-group 101 in
 
-# PORT SECURITY
+
+========================================
+PORT SECURITY
+========================================
 
 interface FastEthernet0/1
  switchport mode access
@@ -159,10 +195,12 @@ interface FastEthernet0/1
  switchport port-security maximum 1
  switchport port-security violation shutdown
 
-# WI-FI CONFIGURATION (SSID, RADIO, BRIDGING)
 
-! Step 1 : Créer le SSID
+========================================
+WI-FI CONFIGURATION (SSID / RADIO / BRIDGING)
+========================================
 
+# Step 1: Create SSID
 dot11 ssid HEG_WIFI
  vlan 10
  authentication open
@@ -170,82 +208,67 @@ dot11 ssid HEG_WIFI
  authentication key-management wpa version 2
  wpa-psk ascii 0 cisco123
 
-! Step 2 : Activer l’interface radio
-
+# Step 2: Enable radio interface
 interface dot11radio 0
  no shutdown
  ssid HEG_WIFI
  encryption vlan 10 mode ciphers aes-ccm
 
-! Step 3 : Créer la sous-interface WiFi pour le VLAN 10
-
+# Step 3: WiFi subinterface
 interface dot11radio 0.10
  encapsulation dot1q 10
  bridge-group 1
 
-! Step 4 : Créer la sous-interface Ethernet pour le VLAN 10
-
+# Step 4: Ethernet subinterface
 interface FastEthernet0.10
  encapsulation dot1q 10
  bridge-group 1
 
-! Step 5 : Activer l’interface Ethernet physique si nécessaire
-
+# Step 5: Enable physical Ethernet interface
 interface FastEthernet0
  no shutdown
 
-# SSH et sécurité
 
-# Création d'utilisateur et gestion des accès
+========================================
+SSH & SECURITY
+========================================
 
-# Exemple utilisateur simple
+# User accounts
 username helpdesk privilege 1 secret MonitorOnly123
-
-# Exemple utilisateur admin
 username network-admin privilege 15 secret FullAccess456
 
-Router# configure terminal
+# Configure router for SSH
+hostname Router1
+ip domain-name company.com
 
-# Step 1: Définir un nom pour le router
-Router(config)# hostname Router1
+crypto key generate rsa general-keys modulus 2048
 
-# Step 2: Configurer un nom de domaine
-Router1(config)# ip domain-name company.com
+username admin privilege 15 secret StrongPass2024!
 
-# Step 3: Générer une paire de clé RSA (2048-bit --> pour une sécurité renforcée)
+line vty 0 4
+ transport input ssh
+ login local
+ exec-timeout 5 0
 
-Router1(config)# crypto key generate rsa general-keys modulus 2048
-The name for the keys will be: Router1.company.com
-% The key modulus size is 2048 bits
-% Generating 2048 bit RSA keys, keys will be non-exportable...
-[OK] (elapsed time was 15 seconds)
+ip ssh version 2
+ip ssh time-out 60
+ip ssh authentication-retries 3
 
-# Step 4: Création d'un utilisateur local avec les accès admin
-Router1(config)# username admin privilege 15 secret StrongPass2024!
+write memory
 
-# Step 5: Configuration des lignes d'accès virtuelle
-Router1(config)# line vty 0 4
-Router1(config-line)# transport input ssh
-Router1(config-line)# login local
-Router1(config-line)# exec-timeout 5 0
-Router1(config-line)# exit
 
-# Step 6: Configuration des paramètres SSH
-Router1(config)# ip ssh version 2
-Router1(config)# ip ssh time-out 60
-Router1(config)# ip ssh authentication-retries 3
-
-# Step 7: Sauvegarde de la configuration
-Router1(config)# end
-Router1# write memory
-
-# COMMANDES DE VÉRIFICATION WI-FI
+========================================
+WIFI VERIFICATION COMMANDS
+========================================
 
 show dot11 bssid
 show bridge verbose
-clear dot11 client <adresse_mac>
+clear dot11 client <mac_address>
 
-# SHOW COMMANDS
+
+========================================
+SHOW COMMANDS (GENERAL)
+========================================
 
 show ip interface brief
 show ip route
@@ -257,7 +280,10 @@ show ip nat translations
 show port-security
 show running-config
 
-# DEBUG COMMANDS
+
+========================================
+DEBUG COMMANDS
+========================================
 
 debug ip rip
 debug ip dhcp server events
