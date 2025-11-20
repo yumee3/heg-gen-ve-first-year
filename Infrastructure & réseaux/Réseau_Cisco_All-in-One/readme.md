@@ -1,28 +1,29 @@
-# TP Réseau Complet - Infrastructure Cisco (Packet Tracer)
+# Complete Network Lab – Cisco Infrastructure (Packet Tracer)
 
-## 📌 Objectif  
-Mettre en œuvre une infrastructure réseau complète et fonctionnelle avec Packet Tracer, intégrant les services essentiels d’une entreprise.
+## Objective  
+Implement a fully functional network infrastructure using Packet Tracer, integrating all essential enterprise services.
 
-## 📚 Contenu du dossier  
-- 📁 `exo_final.pkt` → Simulation complète incluant :
-  - ✅ Configuration de base (hostname, mots de passe, interfaces, bannières…)
-  - ✅ DHCP (serveur et relay)
-  - ✅ NAT / PAT
-  - ✅ ACL (listes de contrôle d'accès standard et étendues)
-  - ✅ Redirection de ports
-  - ✅ VLAN (création, affectation, trunking)
-  - ✅ Routage RIP
-  - ✅ Configuration WiFi (SSID, sécurité WPA2)
-  - Routeurs, switches, PC, serveurs, bornes WiFi
-  - Réseau segmenté avec plusieurs VLAN
-  - Topologie propre et adressage IP organisé
+## Folder Content  
+- `exo_final.pkt` → Full simulation including:
+  - Basic configuration (hostname, passwords, interfaces, banners…)
+  - DHCP (server and relay)
+  - NAT / PAT
+  - ACLs (standard and extended access control lists)
+  - Port forwarding
+  - VLANs (creation, assignment, trunking)
+  - RIP routing
+  - Wi-Fi configuration (SSID, WPA2 security)
+  - Routers, switches, PCs, servers, Wi-Fi access points
+  - Segmented network with multiple VLANs
+  - Clean topology and organized IP addressing
 
-## 🧠 Compétences mobilisées
-- Configuration complète d’une topologie Cisco
-- Routage inter-VLAN via router-on-a-stick
-- Gestion des VLAN et des ports (access/trunk)
-- Sécurisation du réseau via ACL et NAT
-- Mise en place d’un réseau WiFi sécurisé
-- Résolution de problèmes réseau (debug, tests de connectivité)
+## Skills Covered
+- Full configuration of a Cisco topology
+- Inter-VLAN routing with router-on-a-stick
+- VLAN and port management (access/trunk)
+- Network security using ACL and NAT
+- Deployment of a secure Wi-Fi network
+- Network troubleshooting (debug, connectivity tests)
 
-## ✅ Ce TP est une synthèse de tout ce qu’un étudiant doit maîtriser en infrastructure réseau avec Packet Tracer.
+## Summary
+This lab is a synthesis of all the essential concepts a student must master for Cisco network infrastructure using Packet Tracer.
