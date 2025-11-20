@@ -1,19 +1,19 @@
-# Exercice - Ouverture de Porte de Garage (Packet Tracer)
+# Exercise – Garage Door Opening System (Packet Tracer)
 
-## 📌 Objectif
-Simuler un système d'ouverture automatique de porte de garage à l'aide de Packet Tracer, en utilisant des capteurs et des composants IoT.
+## Objective
+Simulate an automatic garage door opening system using Packet Tracer with IoT sensors and actuators.
 
-## ⚙️ Contenu
-- Simulation d'un dispositif d'ouverture/fermeture automatique.
-- Utilisation de capteurs de proximité et d’actionneurs.
-- Programmation simple via logique conditionnelle (bloc ou script).
-- Affichage du statut de la porte (ouverte / fermée).
+## Description
+- Simulation of an automatic open/close mechanism.
+- Use of proximity sensors and actuators.
+- Simple programming through conditional logic (block-based or script).
+- Display of door status (open / closed).
 
-## 🧠 Compétences mobilisées
-- Logique de condition (if/else)
-- Introduction aux objets connectés dans Packet Tracer (IoT)
-- Synchronisation entre capteurs et actionneurs
+## Skills Covered
+- Conditional logic (if/else)
+- Introduction to IoT devices in Packet Tracer
+- Synchronization between sensors and actuators
 
-## ✅ À tester
-- Simulation avec approche manuelle
-- Simulation via déclenchement automatique
+## Tests to Perform
+- Manual triggering simulation
+- Automatic triggering simulation
