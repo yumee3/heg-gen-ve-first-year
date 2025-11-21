@@ -1,10 +1,12 @@
-# HEG Genève – Réseaux & Infrastructure (1re Année)
+HEG Geneva – Networks & Infrastructure (1st Year)
 
-Archive personnelle des travaux pratiques réalisés en réseaux Cisco lors de ma première année du Bachelor en Informatique de Gestion à la HEG Genève.
+Personal archive of the network-related practical work completed during my first year of the Bachelor in Information Systems at HEG Geneva.
 
-## Contenu du dépôt
+Repository Contents
 
-* **AideMemoire** : fiches de révision et commandes essentielles
-* **GarageDoorSimulation** : projet domotique sur Packet Tracer
-* **Réseau\_Cisco\_All-in-One** : configuration complète avec VLAN, DHCP, NAT/PAT, ACL et RIP
+CheatSheet: revision sheets and essential Cisco commands
+
+GarageDoorSimulation: home-automation project built in Packet Tracer
+
+CiscoNetwork_All-in-One: full network configuration including VLAN, DHCP, NAT/PAT, ACL, and RIP
 
