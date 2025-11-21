@@ -1,76 +1,88 @@
-# Dossier Réseau – Commandes & Exercices Packet Tracer
+# Network Folder – Cisco Commands & Packet Tracer Exercises
 
-Ce dossier regroupe l’ensemble des connaissances pratiques nécessaires à la configuration d’un réseau Cisco, avec une synthèse complète des commandes essentielles et plusieurs exercices réalisés sur Cisco Packet Tracer.
-
----
-
-## Fichier de commandes – Référentiel complet
-
-Le fichier texte contient toutes les commandes utiles pour :
-
-### Configuration de base d’un équipement
-- Nom du périphérique (`hostname`)
-- Mot de passe console, VTY et enable
-- Bannières (`banner motd`)
-- Désactivation DNS lookup
-- Sauvegarde de la config (`wr`, `copy run start`)
-
-### Adressage IP & Interfaces
-- Configuration d’une interface (`ip address`, `no shutdown`)
-- Configuration d’une passerelle (`ip default-gateway`)
-- Affichage des IPs (`show ip interface brief`)
-
-### ACL – Listes de contrôle d’accès
-- Standard (`access-list 1 permit...`)
-- Étendue (extended ACLs avec filtrage IP/port)
-- Application sur interface avec `ip access-group`
-
-### Routage dynamique – RIP
-- Configuration du protocole RIP
-- Annonce des réseaux
-- Commandes de vérification (`show ip protocols`, `show ip route`)
-
-### DHCP – Attribution dynamique d’IP
-- Création de pools DHCP
-- Exclusion d’adresses
-- Configuration de passerelle, DNS, plage d’adresses
-- `ip dhcp excluded-address`
-
-### NAT & PAT – Traduction d’adresses
-- NAT statique (`ip nat inside source static`)
-- NAT dynamique avec pool
-- PAT (surcharge avec interface)
-- Configuration `ip nat inside` / `ip nat outside`
-
-### Redirection de ports
-- Exemple : redirection HTTP vers serveur web local
-- Cas d’usage type maison intelligente
-
-### Wi-Fi – Configuration sans fil
-- Création d’un réseau SSID
-- Paramètres de sécurité (clé WPA2)
-- Attribution d’IP manuelle ou via DHCP
+This folder contains all the practical knowledge required to configure a Cisco network.
+It includes a complete reference of essential commands, as well as multiple hands-on exercises created with Cisco Packet Tracer.
 
 ---
 
-## Exercices Packet Tracer inclus
+## Complete Command Reference File
 
-1. **TP global – Réseau complet**
-   > Une topologie complète reprenant toutes les notions listées ci-dessus.  
-   **Objectif** : configurer entièrement un réseau opérationnel avec routage, DHCP, ACL, NAT, PAT et Wi-Fi.
+The text file provides all necessary commands for:
 
-2. **Simulation – Domotique porte de garage**
-   > Projet de simulation d’ouverture/fermeture d’une porte de garage dans Packet Tracer.  
-   **Objectif** : appliquer les notions de connectivité, routage, et scénarios automatisés dans une maison connectée.
+### Basic Device Configuration
+
+* Device name (`hostname`)
+* Console, VTY, and enable passwords
+* Banners (`banner motd`)
+* Disable DNS lookup
+* Save configuration (`wr`, `copy run start`)
+
+### IP Addressing & Interfaces
+
+* Interface configuration (`ip address`, `no shutdown`)
+* Default gateway configuration (`ip default-gateway`)
+* Display IP information (`show ip interface brief`)
+
+### Access Control Lists (ACLs)
+
+* Standard ACLs (`access-list 1 permit...`)
+* Extended ACLs (IP/port filtering)
+* Applying ACLs to interfaces using `ip access-group`
+
+### Dynamic Routing – RIP
+
+* RIP configuration
+* Advertising networks
+* Verification commands (`show ip protocols`, `show ip route`)
+
+### DHCP – Dynamic IP Assignment
+
+* Creating DHCP pools
+* Excluding addresses
+* Setting gateway, DNS, and IP ranges
+* `ip dhcp excluded-address`
+
+### NAT & PAT – Address Translation
+
+* Static NAT (`ip nat inside source static`)
+* Dynamic NAT with pools
+* PAT (overload on interface)
+* Configuring `ip nat inside` / `ip nat outside`
+
+### Port Forwarding
+
+* Example: forwarding HTTP traffic to a local web server
+* Typical use cases for home automation
+
+### Wi-Fi Configuration
+
+* SSID creation
+* WPA2 security configuration
+* Manual or DHCP-based IP assignment
 
 ---
 
-## Objectif pédagogique
+## Included Packet Tracer Exercises
 
-Ce dossier sert de base de révision complète pour maîtriser :
-- La configuration de routeurs et switches Cisco
-- La sécurisation d’un réseau avec des ACL
-- La mise en place de services réseau courants (DHCP, NAT, etc.)
-- La compréhension et l’expérimentation des protocoles sur des topologies concrètes
+### 1. Full Network Practical Lab
 
-> *Les fichiers `.pkt` sont à ouvrir avec Cisco Packet Tracer (v8.0 minimum recommandé).*
+A complete topology covering all concepts listed above.
+**Objective:** fully configure an operational network with routing, DHCP, ACLs, NAT, PAT, and Wi-Fi services.
+
+### 2. Garage Door Automation Simulation
+
+A home-automation scenario simulating the opening and closing of a garage door in Packet Tracer.
+**Objective:** apply connectivity, routing, and automated logic in an IoT environment.
+
+---
+
+## Educational Purpose
+
+This folder serves as a comprehensive review tool to master:
+
+* Router and switch configuration on Cisco devices
+* Network security using ACLs
+* Deployment of core network services (DHCP, NAT, etc.)
+* Understanding and experimenting with protocols in real topologies
+
+> *.pkt files should be opened with Cisco Packet Tracer (version 8.0 or higher recommended).*
