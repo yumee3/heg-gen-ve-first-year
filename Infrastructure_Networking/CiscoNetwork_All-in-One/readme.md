@@ -4,7 +4,7 @@
 Implement a fully functional network infrastructure using Packet Tracer, integrating all essential enterprise services.
 
 ## Folder Content  
-- `exo_final.pkt` → Full simulation including:
+- `full_network_lab.pkt` → Full simulation including:
   - Basic configuration (hostname, passwords, interfaces, banners…)
   - DHCP (server and relay)
   - NAT / PAT
